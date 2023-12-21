@@ -1,0 +1,46 @@
+@import "colors";
+@import "_fontsize";
+@import "_length";
+
+.overallanalytics_container {
+  // width: 60%;
+  background-color: white;
+  border-radius: $len-3;
+  padding: $len-5 $len-4 $len-5 $len-4;
+}
+
+.overallanalytics_heading {
+  h3,
+  h4 {
+    margin: 0px;
+    font-size: $lg;
+    color: $purple;
+  }
+  h3 {
+    margin-bottom: $len-2;
+    color: $text_primary;
+  }
+}
+
+.button_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $len-3;
+  margin-top: $len-4;
+}
+.button_styles {
+  width: 100%;
+  background-color: #fafafa;
+  color: $text_primary;
+  padding: $len-3 $len-6;
+  border-radius: $len-2;
+  border: none;
+}
+
+.revenueChart_container {
+  // width: fit-content;
+  background-color: white;
+  border-radius: $len-3;
+  padding: $len-5 $len-4 $len-5 $len-4;
+}

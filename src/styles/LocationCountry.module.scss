@@ -1,0 +1,60 @@
+@import "colors";
+@import "_fontsize";
+@import "_length";
+
+
+.right_card{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: $len-6 $len-4 $len-2 $len-4;
+}
+
+.top_user_container {
+  background-color: $bg-secondary;
+  padding: $len-6 $len-4 $len-2 $len-4;
+  width: 45%;
+}
+
+.top_user_container_heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $len-7;
+
+  h3 {
+    margin: 0px;
+    font-size: $lg;
+  }
+  a {
+    margin: 0px;
+    color: $purple;
+    font: 800;
+  }
+}
+
+.user_details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $len-3;
+}
+
+.user_details_right {
+  display: flex;
+  gap: $len-2;
+  p {
+    margin: 0px;
+    font-size: $sm;
+  }
+  h4 {
+    margin: 0px;
+    margin-bottom: $len-2;
+  }
+}
+
+.top_country_heading {
+  margin: 0px;
+  margin-bottom: $len-7;
+  font-size: $lg;
+  background-color: white;
+  border-radius: $len-4;
+}

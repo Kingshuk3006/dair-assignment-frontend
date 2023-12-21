@@ -8,13 +8,13 @@
   padding: $len-2 $len-4;
   border-radius: $len-3;
 
-  .p-paginator-bottom{
+  .p-paginator-bottom {
     justify-content: end !important;
   }
-  .p-datatable-wrapper:first-child{
+  .p-datatable-wrapper:first-child {
     visibility: hidden !important;
   }
-  .p-datatable-wrapper:nth-child(2){
+  .p-datatable-wrapper:nth-child(2) {
     visibility: hidden !important;
   }
 }
@@ -22,7 +22,50 @@
 .recentActivity_container {
   width: 40%;
   background-color: white;
-  padding: $len-2 $len-4;
+  padding: $len-6 $len-4 $len-2 $len-4;
   height: 100%;
   border-radius: $len-3;
+}
+
+.recentActivity_container_heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $len-6;
+  h3 {
+    margin: 0px;
+    font-size: $lg;
+  }
+  a {
+    margin: 0px;
+    color: $purple;
+    font: 800;
+  }
+}
+
+.notification_container{
+  display: flex;
+  flex-direction: column;
+  gap: $len-2;
+}
+
+.notification {
+  display: flex;
+  justify-content: space-between;
+  gap: $len-2;
+  .notification_button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: $len-4;
+  }
+  & span {
+    padding: $len-2 $len-4;
+    background-color: #fafafa;
+    color: $grey;
+    border-radius: $len-6;
+  }
+  .notification_right{
+    font-size: $xsm;
+  }
 }

@@ -13,6 +13,13 @@ import RepeatUser from "@/components/RepeatUser";
 import TotalRevenue from "@/components/TotalRevenue";
 import TopStories from "@/components/TopStories";
 import RecentActivity from "@/components/RecentActivity";
+import TopUser from "@/components/TopUser";
+import TopCountry from "@/components/TopCountry";
+import Micropayment from "@/components/Micropayment";
+import MonthlySubscriber from "@/components/MonthlySubscriber";
+import YearlySubscriber from "@/components/YearlySubscriber";
+import OverallAnalytics from "@/components/OverallAnalytics";
+import RevenueChart from "@/components/RevenueChart";
 
 export default function Home() {
   const menuLeft = useRef(null);
@@ -107,14 +114,26 @@ export default function Home() {
             <RepeatUser />
             <TotalRevenue />
           </div>
-          {/* charts */}
-          <div className={styles.chart}></div>
+          {/* analytics */}
+          <div className={styles.analytics}>
+            <OverallAnalytics />
+            <RevenueChart />
+          </div>
           {/* payment and subscription */}
-          <div className={styles.chart}></div>
+          <div className={styles.payment_container}>
+            <Micropayment />
+            <MonthlySubscriber />
+            <YearlySubscriber />
+          </div>
           {/* activity */}
           <div className={styles.activity}>
             <TopStories />
             <RecentActivity />
+          </div>
+          {/* top User   location    top 10 country */}
+          <div className={styles.location_other_info}>
+            <TopUser />
+            <TopCountry />
           </div>
         </div>
       </main>

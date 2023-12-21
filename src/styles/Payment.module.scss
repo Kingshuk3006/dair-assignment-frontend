@@ -1,0 +1,38 @@
+@import "colors";
+@import "_fontsize";
+@import "_length";
+
+.micropayment_heading {
+  display: flex;
+  justify-content: space-between;
+  section > * {
+    margin: 0px;
+    margin-bottom: $len-2;
+    font-size: $lg;
+  }
+  section {
+    h3 {
+      color: $text_primary;
+    }
+    h4 {
+      color: $grey;
+    }
+    h5 {
+      color: $purple;
+    }
+  }
+}
+
+.micropayment_container {
+  width: 100%;
+  background-color: white;
+  border-radius: $len-3;
+  padding: $len-6 $len-4 $len-2 $len-4;
+}
+
+.monthlySubscriber_right {
+  display: flex;
+  justify-content: flex-end;
+  gap: $len-2;
+  height: fit-content !important;
+}
