@@ -1,0 +1,33 @@
+@import "colors";
+@import "_fontsize";
+@import "_length";
+
+.container {
+  background-color: white;
+  border-radius: $len-3;
+  box-shadow: 2px 2px $bg-secondary;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $len-2 $len-4;
+}
+
+.container_left_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: $len-2;
+  margin-bottom: $len-3;
+}
+
+.container_left_bottom{
+  color: $grey;
+  display: flex;
+  align-items: center;
+  p{
+    margin: 0px;
+    margin-right: $len-1;
+  }
+}

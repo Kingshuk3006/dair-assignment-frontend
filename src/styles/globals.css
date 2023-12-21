@@ -1,0 +1,17 @@
+* {
+  font-family: "Urbanist", sans-serif !important;
+  letter-spacing: 0.006em;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.p-inputtext:enabled:focus {
+  box-shadow: none !important;
+}
+
+.p-button:focus {
+  box-shadow: none !important;
+}

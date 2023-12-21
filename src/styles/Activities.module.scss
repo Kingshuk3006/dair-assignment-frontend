@@ -1,0 +1,28 @@
+@import "colors";
+@import "_fontsize";
+@import "_length";
+
+.topStories_container {
+  background-color: white;
+  width: 60%;
+  padding: $len-2 $len-4;
+  border-radius: $len-3;
+
+  .p-paginator-bottom{
+    justify-content: end !important;
+  }
+  .p-datatable-wrapper:first-child{
+    visibility: hidden !important;
+  }
+  .p-datatable-wrapper:nth-child(2){
+    visibility: hidden !important;
+  }
+}
+
+.recentActivity_container {
+  width: 40%;
+  background-color: white;
+  padding: $len-2 $len-4;
+  height: 100%;
+  border-radius: $len-3;
+}

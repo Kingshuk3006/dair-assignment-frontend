@@ -1,0 +1,79 @@
+@import "colors";
+@import "_fontsize";
+@import "_length";
+
+.navbar {
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom:$len-3;
+  border-radius: 0px $len-2;
+}
+
+.navbar_right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: $len-8;
+}
+
+.calender {
+  border-radius: $len-2;
+  border: $len-px solid $grey;
+  padding: $len-2 $len-3;
+  min-width: $len-56;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fcfcfd;
+  height: $len-14;
+  gap: $len-3;
+}
+.calender > * :not(:last-child) {
+  margin-right: 10px;
+}
+
+.welcome_container {
+  background-color: #fcfcfd;
+  border-radius: $len-2;
+  border: $len-px solid $grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $len-2 $len-3;
+  gap: $len-8;
+  min-width: $len-56;
+  text-align: center;
+  height: $len-14;
+}
+
+.welcome_container_left {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+
+  h3 {
+    margin: 0px;
+    font-size: $base;
+    font-weight: 400;
+  }
+  p {
+    margin: 0px;
+    margin-bottom: $len-2;
+    font-size: $sm;
+  }
+}
+
+.p-input {
+  input {
+    min-width: $len-56;
+    min-height: $len-14;
+    background-color: #fcfcfd;
+  }
+}

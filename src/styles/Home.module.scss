@@ -1,0 +1,51 @@
+@import "colors";
+@import "_fontsize";
+@import "_length";
+
+.page {
+  background-color: $bg_primary;
+  min-height: 100vh;
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+}
+
+.right_panel {
+  background-color: $bg_primary;
+  width: 100%;
+  margin: 0px $len-3;
+}
+
+.welcome_container {
+  background-color: $bg-secondary;
+  padding: $len-3 $len-5;
+  border-radius: $len-2;
+
+  h1 {
+    margin: 0px;
+    margin-bottom: $len-2;
+    font-size: $lg;
+  }
+  p {
+    margin: 0px;
+    font-size: $sm;
+  }
+}
+
+.status{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
+  gap: $len-3;
+  margin: $len-3 0px;
+}
+
+.activity{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
+  gap: $len-3;
+  margin: $len-3 0px;
+}
