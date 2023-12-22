@@ -1,3 +1,5 @@
+
+
 * {
   font-family: "Urbanist", sans-serif !important;
   letter-spacing: 0.006em;
@@ -14,4 +16,27 @@ body {
 
 .p-button:focus {
   box-shadow: none !important;
+}
+
+.country-table-wrapper .p-datatable-thead {
+  tr > * {
+    background-color: #c7c8eb !important;
+  }
+}
+ .p-datatable-tbody > tr >td {
+  border-bottom: none !important; /* Remove bottom border for each row */
+}
+
+.loader svg{
+  fill: #9058ff;
+}
+
+.p-paginator-bottom {
+  justify-content: flex-end !important;
+ 
+}
+
+.p-avatar{
+  width: 2.5rem !important;
+  height: 2.5rem !important;
 }

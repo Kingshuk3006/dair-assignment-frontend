@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/styles/status.module.scss";
 
-const NewUser = () => {
+const NewUser = ({userCount, fromMonth, increase, percentage}) => {
   return (
     <div className={styles.container}>
       <div className={styles.container_left}>
@@ -53,12 +53,15 @@ const NewUser = () => {
           <span>New User</span>
         </div>
         <div className={styles.container_left_bottom}>
-          <p style={{ color: "green" }}>+23.8</p>
-          <span> From October</span>
+        <p style={increase ? { color: "green" } : { color: "red" }}>
+            <span>{increase ? "+" : "-"}</span>
+            {percentage}
+          </p>
+          <span> From {fromMonth}</span>
         </div>
       </div>
       <div className={styles.container_right}>
-        <h1>163</h1>
+        <h1>{userCount}</h1>
       </div>
     </div>
   );

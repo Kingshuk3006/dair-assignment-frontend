@@ -7,23 +7,13 @@
   width: 60%;
   padding: $len-2 $len-4;
   border-radius: $len-3;
-
-  .p-paginator-bottom {
-    justify-content: end !important;
-  }
-  .p-datatable-wrapper:first-child {
-    visibility: hidden !important;
-  }
-  .p-datatable-wrapper:nth-child(2) {
-    visibility: hidden !important;
-  }
 }
 
 .recentActivity_container {
   width: 40%;
+  min-height: 100% !important;
   background-color: white;
   padding: $len-6 $len-4 $len-2 $len-4;
-  height: 100%;
   border-radius: $len-3;
 }
 
@@ -46,7 +36,7 @@
 .notification_container{
   display: flex;
   flex-direction: column;
-  gap: $len-2;
+  gap: $len-5;
 }
 
 .notification {

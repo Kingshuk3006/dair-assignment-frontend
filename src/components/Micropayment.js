@@ -2,63 +2,54 @@ import React, { useEffect, useState } from "react";
 import styles from "@/styles/Payment.module.scss";
 import { Chart } from "primereact/chart";
 
-const Micropayment = () => {
-  const [chartData, setChartData] = useState({});
-  const [chartOptions, setChartOptions] = useState({});
+const Micropayment = ({ microPayment }) => {
+  const allUser = microPayment?.GraphData.map((data) => {
+    return data.User;
+  });
+  const allTimes = microPayment?.GraphData.map((data) => {
+    return data.Time;
+  });
+  const data = {
+    labels: allTimes,
 
-  useEffect(() => {
-    const documentStyle = getComputedStyle(document.documentElement);
-    const textColor = documentStyle.getPropertyValue("--text-color");
-    const textColorSecondary = documentStyle.getPropertyValue(
-      "--text-color-secondary"
-    );
-    const surfaceBorder = documentStyle.getPropertyValue("--surface-border");
-    const data = {
-      labels: [0, 7.0, 8.0, 10.0, 12.0, 14.0, 16.0, 18.0],
+    datasets: [
+      {
+        label: "Users",
+        data: allUser,
+        fill: false,
+        borderColor: "#7882a4",
+        tension: 0.4,
+      },
+    ],
+  };
+  const options = {
+    maintainAspectRatio: false,
+    aspectRatio: 1,
 
-      datasets: [
-        {
-          label: "Graph Data",
-          data: [28, 48, 40, 19, 86, 27, 90],
-          fill: false,
-          borderColor: "#7882a4",
-          tension: 0.4,
-        },
-      ],
-    };
-    const options = {
-      maintainAspectRatio: false,
-      aspectRatio: 1,
-
-      scales: {
-        x: {
-          grid: {
-            display: false, // Hide the X-axis gridlines
-          },
-        },
-        y: {
-          grid: {
-            display: false, // Hide the X-axis gridlines
-          },
-          beginAtZero: true, // Start the Y-axis at zero
-          ticks: {
-            stepSize: 20, // Adjust the step size of Y-axis ticks
-          },
+    scales: {
+      x: {
+        grid: {
+          display: false, // Hide the X-axis gridlines
         },
       },
-    };
-
-    setChartData(data);
-    setChartOptions(options);
-  }, []);
-
+      y: {
+        grid: {
+          display: false, // Hide the X-axis gridlines
+        },
+        beginAtZero: true, // Start the Y-axis at zero
+        ticks: {
+          stepSize: 20, // Adjust the step size of Y-axis ticks
+        },
+      },
+    },
+  };
   return (
     <div className={styles.micropayment_container}>
       <div className={styles.micropayment_heading}>
         <section>
           <h3>Micropayments</h3>
           <h4>Revenue</h4>
-          <h5>$23.3K</h5>
+          <h5>${microPayment.Total}</h5>
         </section>
         <svg
           width="46"
@@ -79,7 +70,7 @@ const Micropayment = () => {
         </svg>
       </div>
       <div>
-        <Chart type="line" data={chartData} options={chartOptions} />
+        <Chart type="line" data={data} options={options} />
       </div>
     </div>
   );

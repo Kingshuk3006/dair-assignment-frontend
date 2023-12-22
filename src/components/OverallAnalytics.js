@@ -2,26 +2,32 @@ import { Chart } from "primereact/chart";
 import React from "react";
 import styles from "@/styles/Analytics.module.scss";
 
-const OverallAnalytics = () => {
+const OverallAnalytics = ({ analyticsData }) => {
+  const graphData = analyticsData?.GraphData.map((data) => {
+    return data.Users;
+  });
+
   const data = {
     labels: [
-      "1-2",
-      "2-3",
-      "3-4",
-      "4-5",
-      "5-6",
-      "6-7",
-      "7-8",
-      "8-9",
-      "9-10",
-      "10-11",
-      "11-12",
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
     ],
     datasets: [
       {
-        label: "Subscriber",
-        backgroundColor: "#e8e9ff",
-        data: [645, 459, 580, 681, 156, 455, 540, 345, 534, 123, 345],
+        label: "Users",
+        backgroundColor: "#9058ff",
+       
+        data: graphData,
       },
     ],
   };
@@ -56,16 +62,24 @@ const OverallAnalytics = () => {
     <div className={styles.overallanalytics_container}>
       <div className={styles.overallanalytics_heading}>
         <h3>Overall Analytics</h3>
-        <h4>4768.83.78K</h4>
+        <h4>{analyticsData.Total}</h4>
       </div>
       <div>
         <Chart type="bar" data={data} options={options} />
       </div>
       <div className={styles.button_container}>
-        <button className={styles.button_styles}>Number of stories published</button>
-        <button className={styles.button_styles}>Number of stories published</button>
-        <button className={styles.button_styles}>Number of stories published</button>
-        <button className={styles.button_styles}>Number of stories published</button>
+        <button className={styles.button_styles}>
+          Number of stories published
+        </button>
+        <button className={styles.button_styles}>
+          Number of stories published
+        </button>
+        <button className={styles.button_styles}>
+          Number of stories published
+        </button>
+        <button className={styles.button_styles}>
+          Number of stories published
+        </button>
       </div>
     </div>
   );

@@ -3,63 +3,46 @@ import styles from "@/styles/Payment.module.scss";
 import { Chart } from "primereact/chart";
 import { Dropdown } from "primereact/dropdown";
 
-const MonthlySubscriber = () => {
-  const [chartData, setChartData] = useState({});
-  const [chartOptions, setChartOptions] = useState({});
+const MonthlySubscriber = ({monthlySubcriber}) => {
+  const data = {
+    labels: [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ],
+    datasets: [
+      {
+        label: "Subscriber",
+        backgroundColor: "#e8e9ff",
+        hoverBackgroundColor: "#9058ff",
+        data: monthlySubcriber.GraphData,
+      },
+    ],
+  };
+  const options = {
+    maintainAspectRatio: false,
+    aspectRatio: 1,
+    barThickness: 10,
 
-  useEffect(() => {
-    const data = {
-      labels: [
-        "1-2",
-        "2-3",
-        "3-4",
-        "4-5",
-        "5-6",
-        "6-7",
-        "7-8",
-        "8-9",
-        "9-10",
-        "10-11",
-        "11-12",
-      ],
-      datasets: [
-        {
-          label: "Subscriber",
-          backgroundColor: "#e8e9ff",
-          data: [645, 459, 580, 681, 156, 455, 540, 345, 534, 123, 345],
+    scales: {
+      x: {
+        grid: {
+          display: false, // Hide the X-axis gridlines
         },
-      ],
-    };
-    const options = {
-      maintainAspectRatio: false,
-      aspectRatio: 1,
-      barThickness: 10,
-
-      scales: {
-        x:{
-          grid: {
-            display: false, // Hide the X-axis gridlines
-          },
+      },
+      y: {
+        grid: {
+          display: false, // Hide the X-axis gridlines
         },
-        y: {
-          grid: {
-            display: false, // Hide the X-axis gridlines
-          },
-          scales: {
-            y: {
-              beginAtZero: true, // Start the Y-axis at zero
-              ticks: {
-                stepSize: 100, // Adjust the step size of Y-axis ticks
-              },
+        scales: {
+          y: {
+            beginAtZero: true, // Start the Y-axis at zero
+            ticks: {
+              stepSize: 100, // Adjust the step size of Y-axis ticks
             },
           },
         },
       },
-    };
-
-    setChartData(data);
-    setChartOptions(options);
-  }, []);
+    },
+  };
 
   return (
     <div className={styles.micropayment_container}>
@@ -67,7 +50,7 @@ const MonthlySubscriber = () => {
         <section>
           <h3>Monthly Subscriber</h3>
           <h4>Revenue</h4>
-          <h5>$23.3K</h5>
+          <h5>{monthlySubcriber.Total}</h5>
         </section>
         <div className={styles.monthlySubscriber_right}>
           <Dropdown value={"2021-2022"} options={["2021-2022", "2022-2023"]} />
@@ -91,7 +74,7 @@ const MonthlySubscriber = () => {
         </div>
       </div>
       <div>
-        <Chart type="bar" data={chartData} options={chartOptions} />
+        <Chart type="bar" data={data} options={options} />
       </div>
     </div>
   );

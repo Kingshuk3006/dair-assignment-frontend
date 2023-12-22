@@ -3,64 +3,81 @@ import styles from "@/styles/Payment.module.scss";
 import { Chart } from "primereact/chart";
 import { Dropdown } from "primereact/dropdown";
 
-const YearlySubscriber = () => {
-  const [chartData, setChartData] = useState({});
-  const [chartOptions, setChartOptions] = useState({});
-
-  useEffect(() => {
-    const data = {
-      labels: [
-        2019,
-        2020,
-        2021,
-        2022
-      ],
-      datasets: [
-        {
-          label: "Subscriber",
-          backgroundColor: "#e8e9ff",
-          data: [645, 459, 580, 681],
-        },
-      ],
+const YearlySubscriber = ({ yearlySubscriber }) => {
+  const allYearData = yearlySubscriber?.GraphData.map((data) => {
+    return {
+      Year: data.Date.substring(data.Date.length - 4),
+      Subscribers: data.Subscribers,
     };
-    const options = {
-      maintainAspectRatio: false,
-      aspectRatio: 1,
-      barThickness: 10,
+  });
 
-      scales: {
-        x:{
-          grid: {
-            display: false, // Hide the X-axis gridlines
-          },
+  const aggregatedData = allYearData.reduce((accumulator, current) => {
+    const { Year, Subscribers } = current;
+    const existingEntry = accumulator.find((entry) => entry.Year === Year);
+
+    if (existingEntry) {
+      existingEntry.Subscribers += Subscribers;
+    } else {
+      accumulator.push({ Year, Subscribers });
+    }
+
+    return accumulator;
+  }, []);
+
+  console.log(
+    aggregatedData
+  );
+
+  const data = {
+    labels: aggregatedData.map((data) => {
+      return data.Year;
+    }),
+    
+    datasets: [
+      {
+        borderColor: "#7882a4",
+        tension: 0.4,
+        label: "Subscriber",
+        backgroundColor: "#e8e9ff",
+        data: aggregatedData.map((data) => {
+          return data.Subscribers;
+        }),
+      },
+    ],
+  };
+  const options = {
+    maintainAspectRatio: false,
+    aspectRatio: 1,
+    barThickness: 10,
+
+    scales: {
+      x: {
+        grid: {
+          display: false, // Hide the X-axis gridlines
         },
-        y: {
-          grid: {
-            display: false, // Hide the X-axis gridlines
-          },
-          scales: {
-            y: {
-              beginAtZero: true, // Start the Y-axis at zero
-              ticks: {
-                stepSize: 100, // Adjust the step size of Y-axis ticks
-              },
+      },
+      y: {
+        grid: {
+          display: false, // Hide the X-axis gridlines
+        },
+        scales: {
+          y: {
+            beginAtZero: true, // Start the Y-axis at zero
+            ticks: {
+              stepSize: 100, // Adjust the step size of Y-axis ticks
             },
           },
         },
       },
-    };
-
-    setChartData(data);
-    setChartOptions(options);
-  }, []);
-
+    },
+  };
   return (
     <div className={styles.micropayment_container}>
       <div className={styles.micropayment_heading}>
         <section>
           <h3>Yearly Subscriber</h3>
           <h4>Revenue</h4>
-          <h5>$23.3K</h5>
+          <h5>{yearlySubscriber.Total}</h5>
         </section>
         <div className={styles.monthlySubscriber_right}>
           <Dropdown value={"2021-2022"} options={["2021-2022", "2022-2023"]} />
@@ -84,7 +101,7 @@ const YearlySubscriber = () => {
         </div>
       </div>
       <div>
-        <Chart type="line" data={chartData} options={chartOptions} />
+        <Chart type="line" data={data} options={options} />
       </div>
     </div>
   );

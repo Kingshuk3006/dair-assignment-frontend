@@ -3,7 +3,7 @@
 @import "_length";
 
 .overallanalytics_container {
-  // width: 60%;
+  width: 60%;
   background-color: white;
   border-radius: $len-3;
   padding: $len-5 $len-4 $len-5 $len-4;
@@ -39,7 +39,7 @@
 }
 
 .revenueChart_container {
-  // width: fit-content;
+  width: 40%;
   background-color: white;
   border-radius: $len-3;
   padding: $len-5 $len-4 $len-5 $len-4;
