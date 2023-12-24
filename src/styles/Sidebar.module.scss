@@ -31,7 +31,7 @@
     background-color: $purple;
     color: white;
     padding: 0.75rem 1rem;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: $sm;
     svg{
         path{
@@ -47,6 +47,16 @@
     gap: 10px;
     padding: 0.75rem 1rem;
     font-size: $sm;
+}
+
+.option_tab:hover{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding: 0.75rem 1rem;
+    background-color: $bg_secondary;
+    border-radius: 5px;
 }
 
 .contact_support{
