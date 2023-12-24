@@ -22,6 +22,7 @@ import OverallAnalytics from "@/components/OverallAnalytics";
 import RevenueChart from "@/components/RevenueChart";
 import { ProgressSpinner } from "primereact/progressspinner";
 import Link from "next/link";
+import { useUser } from "../../context/userContext";
 // import { getStaticProps } from "next/dist/build/templates/pages";
 
 export default function Home({
@@ -34,7 +35,9 @@ export default function Home({
 }) {
   const menuLeft = useRef(null);
   const [loading, setLoading] = useState(false);
-  const user = null;
+  const { userData } = useUser();
+
+  console.log("This is user Data", userData);
 
   const items = [
     {
@@ -42,6 +45,10 @@ export default function Home({
     },
     {
       label: "Logout",
+      command: () => {
+        window.sessionStorage.removeItem("dair_userId");
+        window.location.reload();
+      },
     },
   ];
 
@@ -149,16 +156,16 @@ export default function Home({
                     id="popup_menu_left"
                   />
 
-                  {user ? (
+                  {userData ? (
                     <section
                       onClick={(event) => menuLeft.current.toggle(event)}
                       className={styles_navbar.welcome_container}
                     >
                       <section className={styles_navbar.welcome_container_left}>
-                        <Avatar name="kinsghuk Sarkar" size="" width="30px" />
+                        <Avatar label={userData.name[0]} size="" width="30px" />
                         <section>
                           <p>Welcome back,</p>
-                          <h3>Akshita Patel</h3>
+                          <h3>{userData?.name}</h3>
                         </section>
                       </section>
                       <section>
@@ -177,18 +184,20 @@ export default function Home({
                       </section>
                     </section>
                   ) : (
-                    <section className={styles_navbar.login_button}>
-                      <Link href={"/login"}>Login</Link>
-                    </section>
+                    <Link href={"/login"}>
+                      <section className={styles_navbar.login_button}>
+                        Login
+                      </section>
+                    </Link>
                   )}
                 </div>
               </div>
               {/* welcome container */}
               <>
-                {user ? (
+                {userData ? (
                   <>
                     <div className={styles.welcome_container}>
-                      <h1>Welcome Back , Akshita</h1>
+                      <h1>Welcome Back , {userData.name}</h1>
                       <p>Here is today&apos;s report and performence</p>
                     </div>
                     {/* status log */}
@@ -241,9 +250,7 @@ export default function Home({
                     </div>
                   </>
                 ) : (
-                  <div className={styles.no_user}>
-                    🎉 Login to Continue...
-                  </div>
+                  <div className={styles.no_user}>🎉 Login to Continue...</div>
                 )}
               </>
             </div>

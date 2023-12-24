@@ -1,9 +1,10 @@
 @import "colors";
 @import "_fontsize";
+@import "_length";
 
 .page_container {
   display: grid;
-  max-height: 100vh;
+  // max-height: 100vh;
   overflow-y: hidden;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -99,5 +100,17 @@
       font-weight: 200 !important;
       font-size: $base;
     }
+  }
+}
+
+.forgetPasswordTab{
+  display: flex ;
+  align-items: center;
+  justify-content: space-around;
+  gap: $len-5;
+  p{
+    text-decoration: underline;
+    cursor: pointer;
+    color: $purple;
   }
 }

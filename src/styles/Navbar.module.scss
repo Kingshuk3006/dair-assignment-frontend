@@ -51,9 +51,7 @@
   height: $len-14;
   display: flex;
   align-items: center;
-  a {
-    color: white;
-  }
+  color: white;
   cursor: pointer;
 }
 
@@ -74,18 +72,20 @@
 .welcome_container_left {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  // align-items: flex-start;
   height: 100%;
   gap: $len-2;
   h3 {
     margin: 0px;
     font-size: 17px;
     font-weight: 400;
+    text-align: left;
   }
   p {
     margin: 0px;
     margin-bottom: $len-1;
     font-size: $sm;
+    text-align: left;
   }
 }
 
