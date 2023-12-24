@@ -24,10 +24,6 @@ const YearlySubscriber = ({ yearlySubscriber }) => {
     return accumulator;
   }, []);
 
-  console.log(
-    aggregatedData
-  );
-
   const data = {
     labels: aggregatedData.map((data) => {
       return data.Year;

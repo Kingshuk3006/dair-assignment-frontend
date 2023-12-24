@@ -1,13 +1,14 @@
 import React from "react";
 import styles from "@/styles/LocationCountry.module.scss";
 import { Avatar } from "primereact/avatar";
+import Link from "next/link";
 
 const TopUser = () => {
   return (
     <div className={styles.top_user_container}>
       <div className={styles.top_user_container_heading}>
         <h3>Top user in last 30 days</h3>
-        <a href="/">view all</a>
+        <Link href="/">view all</Link>
       </div>
       <div className={styles.user_list}>
         <div className={styles.user_details}>

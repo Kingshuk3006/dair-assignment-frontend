@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "@/styles/Activities.module.scss";
+import Link from "next/link";
 
 const RecentActivity = () => {
   return (
     <div className={styles.recentActivity_container}>
       <div className={styles.recentActivity_container_heading}>
         <h3>Recent Activities</h3>
-        <a href="/">view all</a>
+        <Link href="/">view all</Link>
       </div>
       <div className={styles.notification_container}>
         <div className={styles.notification}>

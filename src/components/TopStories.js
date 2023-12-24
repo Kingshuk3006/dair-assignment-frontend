@@ -3,13 +3,13 @@ import { DataTable } from "primereact/datatable";
 import { Dropdown } from "primereact/dropdown";
 import React from "react";
 import styles from "@/styles/Activities.module.scss";
+import Link from "next/link";
 
 const TopStories = ({ articleTableData }) => {
   const template2 = {
     layout: "PrevPageLink CurrentPageReport  NextPageLink",
 
     CurrentPageReport: (options) => {
-      console.log(options)
       return (
         <span
           style={{
@@ -45,7 +45,7 @@ const TopStories = ({ articleTableData }) => {
           field="read"
           header="read"
           body={
-            <a href="/">
+            <Link href="/">
               <svg
                 width="24"
                 height="24"
@@ -70,7 +70,7 @@ const TopStories = ({ articleTableData }) => {
                   fill="#7950F2"
                 />
               </svg>
-            </a>
+            </Link>
           }
         ></Column>
       </DataTable>

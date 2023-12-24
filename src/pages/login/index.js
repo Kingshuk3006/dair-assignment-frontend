@@ -12,9 +12,29 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [isRemember, setIsRemember] = useState(false);
 
-  const handleLogin = ()=>{
-    console.log("Handle the login");
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("http://localhost:8000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username:email,
+          password:password
+        }),
+      });
+
+      if (res.ok) {
+        window.location.href = "/";
+      } else {
+        console.error("Login failed");
+      }
+    } catch (error) {
+      console.error("Login failed", error);
+    }
+  };
 
   return (
     <div className={styles.page_container}>
@@ -74,7 +94,11 @@ const LoginPage = () => {
             </div>
           </div>
         </div>
-        <Button label="Submit" disabled={email === "" || password === ""} onClick={handleLogin}/>
+        <Button
+          label="Submit"
+          disabled={email === "" || password === ""}
+          onClick={handleSubmit}
+        />
       </div>
     </div>
   );
