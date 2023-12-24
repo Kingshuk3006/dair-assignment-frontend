@@ -21,6 +21,7 @@ import YearlySubscriber from "@/components/YearlySubscriber";
 import OverallAnalytics from "@/components/OverallAnalytics";
 import RevenueChart from "@/components/RevenueChart";
 import { ProgressSpinner } from "primereact/progressspinner";
+import Link from "next/link";
 // import { getStaticProps } from "next/dist/build/templates/pages";
 
 export default function Home({
@@ -33,6 +34,7 @@ export default function Home({
 }) {
   const menuLeft = useRef(null);
   const [loading, setLoading] = useState(false);
+  const user = null;
 
   const items = [
     {
@@ -147,32 +149,36 @@ export default function Home({
                     id="popup_menu_left"
                   />
 
-                  <section
-                    onClick={(event) => menuLeft.current.toggle(event)}
-                    className={styles_navbar.welcome_container}
-                  >
-                    <section className={styles_navbar.welcome_container_left}>
-                      <Avatar name="kinsghuk Sarkar" size="" width="30px" />
+                  {user ? (
+                    <section
+                      onClick={(event) => menuLeft.current.toggle(event)}
+                      className={styles_navbar.welcome_container}
+                    >
+                      <section className={styles_navbar.welcome_container_left}>
+                        <Avatar name="kinsghuk Sarkar" size="" width="30px" />
+                        <section>
+                          <p>Welcome back,</p>
+                          <h3>Akshita Patel</h3>
+                        </section>
+                      </section>
                       <section>
-                        <p>Welcome back,</p>
-                        <h3>Akshita Patel</h3>
+                        <svg
+                          width="16"
+                          height="10"
+                          viewBox="0 0 16 10"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0.46967 0.96967C0.735936 0.703403 1.1526 0.679197 1.44621 0.897052L1.53033 0.96967L8 7.439L14.4697 0.96967C14.7359 0.703403 15.1526 0.679197 15.4462 0.897052L15.5303 0.96967C15.7966 1.23594 15.8208 1.6526 15.6029 1.94621L15.5303 2.03033L8.53033 9.03033C8.26406 9.2966 7.8474 9.3208 7.55379 9.10295L7.46967 9.03033L0.46967 2.03033C0.176777 1.73744 0.176777 1.26256 0.46967 0.96967Z"
+                            fill="#1E2875"
+                          />
+                        </svg>
                       </section>
                     </section>
-                    <section>
-                      <svg
-                        width="16"
-                        height="10"
-                        viewBox="0 0 16 10"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0.46967 0.96967C0.735936 0.703403 1.1526 0.679197 1.44621 0.897052L1.53033 0.96967L8 7.439L14.4697 0.96967C14.7359 0.703403 15.1526 0.679197 15.4462 0.897052L15.5303 0.96967C15.7966 1.23594 15.8208 1.6526 15.6029 1.94621L15.5303 2.03033L8.53033 9.03033C8.26406 9.2966 7.8474 9.3208 7.55379 9.10295L7.46967 9.03033L0.46967 2.03033C0.176777 1.73744 0.176777 1.26256 0.46967 0.96967Z"
-                          fill="#1E2875"
-                        />
-                      </svg>
-                    </section>
-                  </section>
+                  ) : (
+                    <section className={styles_navbar.login_button}><Link href={'/login'}>Login</Link></section>
+                  )}
                 </div>
               </div>
               {/* welcome container */}
