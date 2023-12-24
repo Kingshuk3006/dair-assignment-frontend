@@ -177,63 +177,75 @@ export default function Home({
                       </section>
                     </section>
                   ) : (
-                    <section className={styles_navbar.login_button}><Link href={'/login'}>Login</Link></section>
+                    <section className={styles_navbar.login_button}>
+                      <Link href={"/login"}>Login</Link>
+                    </section>
                   )}
                 </div>
               </div>
               {/* welcome container */}
-              <div className={styles.welcome_container}>
-                <h1>Welcome Back , Akshita</h1>
-                <p>Here is today&apos;s report and performence</p>
-              </div>
-              {/* status log */}
-              <div className={styles.status}>
-                <ActiveUser
-                  userCount={164}
-                  increase={true}
-                  percentage={23.4}
-                  fromMonth={"October"}
-                />
-                <NewUser
-                  userCount={4565}
-                  increase={false}
-                  percentage={23.8}
-                  fromMonth={"October"}
-                />
-                <RepeatUser
-                  userCount={"24.5k"}
-                  increase={true}
-                  percentage={23.8}
-                  fromMonth={"October"}
-                />
-                <TotalRevenue
-                  revenueAmt={4565}
-                  increase={false}
-                  percentage={23.8}
-                  fromMonth={"October"}
-                />
-              </div>
-              {/* analytics */}
-              <div className={styles.analytics}>
-                <OverallAnalytics analyticsData={overallAnalytics} />
-                <RevenueChart revenueGraph={revenueGraph} />
-              </div>
-              {/* payment and subscription */}
-              <div className={styles.payment_container}>
-                <Micropayment microPayment={microPayment} />
-                <MonthlySubscriber monthlySubcriber={monthlySubscriber} />
-                <YearlySubscriber yearlySubscriber={yearlySubscriber} />
-              </div>
-              {/* activity */}
-              <div className={styles.activity}>
-                <TopStories articleTableData={articleData} />
-                <RecentActivity />
-              </div>
-              {/* top User   location    top 10 country */}
-              <div className={styles.location_other_info}>
-                <TopUser />
-                <TopCountry />
-              </div>
+              <>
+                {user ? (
+                  <>
+                    <div className={styles.welcome_container}>
+                      <h1>Welcome Back , Akshita</h1>
+                      <p>Here is today&apos;s report and performence</p>
+                    </div>
+                    {/* status log */}
+                    <div className={styles.status}>
+                      <ActiveUser
+                        userCount={164}
+                        increase={true}
+                        percentage={23.4}
+                        fromMonth={"October"}
+                      />
+                      <NewUser
+                        userCount={4565}
+                        increase={false}
+                        percentage={23.8}
+                        fromMonth={"October"}
+                      />
+                      <RepeatUser
+                        userCount={"24.5k"}
+                        increase={true}
+                        percentage={23.8}
+                        fromMonth={"October"}
+                      />
+                      <TotalRevenue
+                        revenueAmt={4565}
+                        increase={false}
+                        percentage={23.8}
+                        fromMonth={"October"}
+                      />
+                    </div>
+                    {/* analytics */}
+                    <div className={styles.analytics}>
+                      <OverallAnalytics analyticsData={overallAnalytics} />
+                      <RevenueChart revenueGraph={revenueGraph} />
+                    </div>
+                    {/* payment and subscription */}
+                    <div className={styles.payment_container}>
+                      <Micropayment microPayment={microPayment} />
+                      <MonthlySubscriber monthlySubcriber={monthlySubscriber} />
+                      <YearlySubscriber yearlySubscriber={yearlySubscriber} />
+                    </div>
+                    {/* activity */}
+                    <div className={styles.activity}>
+                      <TopStories articleTableData={articleData} />
+                      <RecentActivity />
+                    </div>
+                    {/* top User   location    top 10 country */}
+                    <div className={styles.location_other_info}>
+                      <TopUser />
+                      <TopCountry />
+                    </div>
+                  </>
+                ) : (
+                  <div className={styles.no_user}>
+                    🎉 Login to Continue...
+                  </div>
+                )}
+              </>
             </div>
           </div>
         )}

@@ -90,3 +90,11 @@
   align-items: center;
   height: 100vh;
 }
+
+.no_user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  font-size: $xxl;
+}
